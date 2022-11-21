@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Component structure first then coding
+
+- App [ cards and their interal Layout]
+- City
+  - Weather
+    - Temperature
+    - Condition
+    - Details
+      - Humidity
+      - Wind
+    - Name
+  - OhterCities
+  - Forecast
