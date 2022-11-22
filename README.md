@@ -72,13 +72,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Component structure first then coding
 
 - App [ cards and their interal Layout]
-- City
-  - Weather
-    - Temperature
-    - Condition
-    - Details
-      - Humidity
-      - Wind
+  - City
     - Name
+    - Weather
+      - Temperature
+      - Condition
+      - Details
+        - Humidity
+        - Wind
   - OhterCities
   - Forecast
