@@ -1,5 +1,5 @@
 const OtherCities = () => {
-    <div>OtherCities</div>
+  return <div>OtherCities</div>;
 };
 
-export default OtherCities
+export default OtherCities;
