@@ -1,10 +1,14 @@
-import Temperature from './components/Temperature';
 import Condition from './components/Condition';
 import Details from './components/Details';
+import styled from 'styled-components';
+
+const Temperature = styled.div`
+  font-size: 5rem;
+`;
 
 const Weather = () => (
   <div>
-    <Temperature />
+    <Temperature>15.33 *</Temperature>
     <Condition />
     <Details />
   </div>
