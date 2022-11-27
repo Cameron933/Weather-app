@@ -18,6 +18,7 @@ const Card = styled.div`
   background-color: white;
   border-radius: 32px;
   box-shadow: 0 0 16px rgb(0 0 0 / 50%);
+  overflow: hidden;
 `;
 
 const Bottom = styled.div`

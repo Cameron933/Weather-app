@@ -10,6 +10,16 @@ const Container = styled.div`
   background-image: url(https://i.imgur.com/GhQZhaO.jpg);
   background-size: cover;
   color: white;
+  position: relative;
+`;
+
+const Strip = styled.div`
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;
 
 const City = () => {
@@ -17,6 +27,7 @@ const City = () => {
     <Container>
       <Weather />
       <Name />
+      <Strip />
     </Container>
   );
 };
