@@ -1,5 +1,5 @@
-import React from 'react';
-import D from './components/Details';
+import React, { useState } from 'react';
+import Details from './components/Details';
 import styled from 'styled-components';
 
 const Temperature = styled.div`
@@ -14,11 +14,21 @@ const Condition = styled.div`
 `;
 
 const Weather = () => {
+  const [temperature, setTemperature] = useState();
+  const [condition, setCondition] = useState();
+
   return (
     <div>
-      <Temperature>15.33 *</Temperature>
-      <Condition>Clouds</Condition>
-      <D></D>
+      <button
+        onClick={() => {
+          setTemperature('15.33');
+          setCondition('Cloudy');
+        }}>
+        debug
+      </button>
+      <Temperature>{`${temperature} °C`}</Temperature>
+      <Condition>{`${condition}`}</Condition>
+      <Details />
     </div>
   );
 };

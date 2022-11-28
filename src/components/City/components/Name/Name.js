@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 // const Container = styled.div`
@@ -24,17 +25,26 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
 const HorizontalRule = styled.div`
   width: 50%;
   margin-top: 8px;
   background-color: white;
   height: 2px;
 `;
-const Name = () => (
-  <Container>
-    <div>Melbourne</div>
-    <HorizontalRule />
-  </Container>
-);
+
+const Name = () => {
+  const [cityName, setCityName] = useState();
+  return (
+    <Container>
+      <button
+        onClick={() => {
+          setCityName('Mel');
+        }}>
+        debug
+      </button>
+      <div>{cityName}</div>
+      <HorizontalRule />
+    </Container>
+  );
+};
 export default Name;

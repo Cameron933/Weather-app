@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import Wind from './components/Wind';
-import Humidity from './components/Humidity';
+import Item from './components/Item';
 const Container = styled.div`
   display: flex;
   margin-top: 32px;
@@ -13,11 +12,21 @@ const Divider = styled.div`
 `;
 
 const Details = () => {
+  const [humidity, setHumidity] = useState();
+  const [wind, setWind] = useState();
+
   return (
     <Container>
-      <Humidity />
+      <button
+        onClick={() => {
+          setHumidity('70');
+          setWind('3.33');
+        }}>
+        debug
+      </button>
+      <Item title="Humidity">{`${humidity}%`}</Item>
       <Divider />
-      <Wind />
+      <Item title="Wind">{`${wind} K/M`}</Item>
     </Container>
   );
 };
