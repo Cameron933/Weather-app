@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   padding: 64px 96px;
   background-image: url(https://i.imgur.com/GhQZhaO.jpg);
   background-size: cover;
