@@ -17,13 +17,6 @@ const Details = () => {
 
   return (
     <Container>
-      <button
-        onClick={() => {
-          setHumidity('70');
-          setWind('3.33');
-        }}>
-        debug
-      </button>
       <Item title="Humidity">{`${humidity}%`}</Item>
       <Divider />
       <Item title="Wind">{`${wind} K/M`}</Item>
