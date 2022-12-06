@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Details from './components/Details';
 import styled from 'styled-components';
+import getWeather from '../../../../utils/getWeather';
 
 const Temperature = styled.div`
   font-size: 5rem;
@@ -13,28 +14,9 @@ const Condition = styled.div`
   color: rgba(255, 255, 255, 0.7);
 `;
 
-const getWeather = (onSuccess) => {
-  const xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      const data = JSON.parse(this.responseText);
-      onSuccess(data);
-    }
-  };
-
-  const cityId = 2158177;
-  const apiKey = '';
-  xhttp.open(
-    'GET',
-    `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=${apiKey}`,
-    true
-  );
-  xhttp.send();
-};
-
 const Weather = () => {
-  const [temperature, setTemperature] = useState('');
-  const [condition, setCondition] = useState('');
+  const [temperature, setTemperature] = useState('00.0');
+  const [condition, setCondition] = useState('...');
 
   useEffect(() => {
     getWeather((data) => {

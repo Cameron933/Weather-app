@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import getWeather from '../../../../utils/getWeather';
 
 // const Container = styled.div`
 //   font-size: 2rem;
@@ -34,14 +35,15 @@ const HorizontalRule = styled.div`
 
 const Name = () => {
   const [cityName, setCityName] = useState();
+
+  useEffect(() => {
+    getWeather((data) => {
+      setCityName(data.name);
+    });
+  }, []);
+
   return (
     <Container>
-      <button
-        onClick={() => {
-          setCityName('Mel');
-        }}>
-        debug
-      </button>
       <div>{cityName}</div>
       <HorizontalRule />
     </Container>
