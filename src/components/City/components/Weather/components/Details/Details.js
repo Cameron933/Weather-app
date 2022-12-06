@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Item from './components/Item';
-import getWeather from '../../../../../../utils/getWeather';
 
 const Container = styled.div`
   display: flex;
@@ -13,17 +12,7 @@ const Divider = styled.div`
   background-color: rgba(255, 255, 255, 0.7);
 `;
 
-const Details = () => {
-  const [humidity, setHumidity] = useState();
-  const [wind, setWind] = useState();
-
-  useEffect(() => {
-    getWeather((data) => {
-      setHumidity(data.main.humidity);
-      setWind(data.wind.speed);
-    });
-  }, []);
-
+const Details = ({ wind, humidity }) => {
   return (
     <Container>
       <Item title="Humidity">{`${humidity}%`}</Item>

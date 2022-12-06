@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Weather from './components/Weather';
 import Name from './components/Name';
 import styled from 'styled-components';
+import getWeather from '../../utils/getWeather';
 
 const Container = styled.div`
   display: flex;
@@ -24,10 +25,26 @@ const Strip = styled.div`
 `;
 
 const City = () => {
+  const [temperature, setTemperature] = useState('00.0');
+  const [condition, setCondition] = useState('...');
+  const [humidity, setHumidity] = useState();
+  const [wind, setWind] = useState();
+  const [cityName, setCityName] = useState();
+
+  useEffect(() => {
+    getWeather((data) => {
+      setTemperature(data.main.temp);
+      setCondition(data.weather[0].main);
+      setHumidity(data.main.humidity);
+      setWind(data.wind.speed);
+      setCityName(data.name);
+    });
+  }, []);
+
   return (
     <Container>
-      <Weather />
-      <Name />
+      <Weather temperature={temperature} condition={condition} wind={wind} humidity={humidity} />
+      <Name cityName={cityName} />
       <Strip />
     </Container>
   );

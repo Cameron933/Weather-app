@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import getWeather from '../../../../utils/getWeather';
 
 // const Container = styled.div`
 //   font-size: 2rem;
@@ -33,15 +32,7 @@ const HorizontalRule = styled.div`
   height: 2px;
 `;
 
-const Name = () => {
-  const [cityName, setCityName] = useState();
-
-  useEffect(() => {
-    getWeather((data) => {
-      setCityName(data.name);
-    });
-  }, []);
-
+const Name = ({ cityName }) => {
   return (
     <Container>
       <div>{cityName}</div>

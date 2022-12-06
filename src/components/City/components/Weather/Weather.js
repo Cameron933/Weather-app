@@ -14,22 +14,12 @@ const Condition = styled.div`
   color: rgba(255, 255, 255, 0.7);
 `;
 
-const Weather = () => {
-  const [temperature, setTemperature] = useState('00.0');
-  const [condition, setCondition] = useState('...');
-
-  useEffect(() => {
-    getWeather((data) => {
-      setTemperature(data.main.temp);
-      setCondition(data.weather[0].main);
-    });
-  }, []);
-
+const Weather = ({ temperature, condition, wind, humidity }) => {
   return (
     <div>
       <Temperature>{`${temperature} °`}</Temperature>
       <Condition>{`${condition}`}</Condition>
-      <Details />
+      <Details wind={wind} humidity={humidity} />
     </div>
   );
 };
