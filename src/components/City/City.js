@@ -25,26 +25,25 @@ const Strip = styled.div`
 `;
 
 const City = () => {
-  const [temperature, setTemperature] = useState('00.0');
-  const [condition, setCondition] = useState('...');
-  const [humidity, setHumidity] = useState();
-  const [wind, setWind] = useState();
-  const [cityName, setCityName] = useState();
+  const [data, setData] = useState();
 
   useEffect(() => {
-    getWeather((data) => {
-      setTemperature(data.main.temp);
-      setCondition(data.weather[0].main);
-      setHumidity(data.main.humidity);
-      setWind(data.wind.speed);
-      setCityName(data.name);
-    });
+    getWeather(setData);
   }, []);
 
   return (
     <Container>
-      <Weather temperature={temperature} condition={condition} wind={wind} humidity={humidity} />
-      <Name cityName={cityName} />
+      {data && (
+        <React.Fragment>
+          <Weather
+            temperature={data.main.temp}
+            condition={data.weather[0].main}
+            wind={data.wind.speed}
+            humidity={data.main.humidity}
+          />
+          <Name cityName={data.name} />
+        </React.Fragment>
+      )}
       <Strip />
     </Container>
   );

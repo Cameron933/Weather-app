@@ -71,6 +71,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Component structure first then coding
 
+### AKA Step 1: Break The UI Into A Component Hierarchy
+
 - App [ cards and their interal Layout]
   - City
     - Name
@@ -81,4 +83,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
         - Humidity
         - Wind
   - OhterCities
+    - City
+      - Name
+      - Temperature
+      - ConditionImage
   - Forecast
+    -
